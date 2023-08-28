@@ -19,6 +19,13 @@ done < dependencies
 
 echo Package validation complete.
 
+echo Checking for InfluxDB installation.
+
+mkdir downloads
+curl -LSs https://dl.influxdata.com/influxdb/releases/influxdb2-2.7.1-windows-amd64.zip -o ./downloads/influxdb2-2.7.1-windows-amd64.zip
+unzip ./downloads/influxdb2-2.7.1-windows-amd64.zip -d ./downloads/
+mv ./downloads/influxdb2-2.7.1-windows-amd64/influxd.exe .
+
 if ! [ -d dataset ]; then
   echo Downloading dataset.
   mkdir dataset
